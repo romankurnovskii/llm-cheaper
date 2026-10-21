@@ -111,6 +111,14 @@ llm-cheaper refresh
 
 ---
 
+## Agent Skill
+
+`llm-cheaper` includes a pre-packaged agent skill for AI assistants (Claude Code, Cursor, Codex, OpenCode, Antigravity) under [`skills/llm-cheaper/SKILL.md`](./skills/llm-cheaper/SKILL.md).
+
+Agents can load this skill to dynamically route prompts to the cheapest provider or select cheaper alternative models during autonomous tasks.
+
+---
+
 ## License
 
 MIT © [Roman Kurnovskii](https://romankurnovskii.com)
