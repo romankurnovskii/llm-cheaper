@@ -1,0 +1,66 @@
+{
+  "name": "package-name",
+  "version": "1.0.0",
+  "packageManager": "npm@10.9.8",
+  "description": "DESCRIPTION",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "bin": {
+    "package-name": "./dist/bin.js"
+  },
+  "scripts": {
+    "start": "tsx src/bin.ts",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "release": "changeset publish"
+  },
+  "dependencies": {
+    "commander": "15.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@changesets/changelog-github": "1.0.0",
+    "@changesets/cli": "3.0.3",
+    "@types/node": "26.6.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "5.0.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "LICENSE", "README.md"],
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": ["biome check --write"]
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "homepage": "https://github.com/romankurnovskii/PACKAGE_NAME#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romankurnovskii/PACKAGE_NAME.git"
+  },
+  "bugs": {
+    "url": "https://github.com/romankurnovskii/PACKAGE_NAME/issues"
+  },
+  "keywords": ["npm-module"],
+  "author": {
+    "name": "Roman Kurnovskii",
+    "email": "r.kurnovskii@gmail.com",
+    "url": "https://romankurnovskii.com"
+  }
+}
