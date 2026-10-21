@@ -1,13 +1,13 @@
 {
-  "name": "package-name",
+  "name": "llm-price",
   "version": "1.0.0",
   "packageManager": "npm@10.9.8",
-  "description": "DESCRIPTION",
+  "description": "CLI tool to find the cheapest LLM providers and discover cheaper similar models across 230+ providers",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "package-name": "./dist/bin.js"
+    "llm-price": "./dist/bin.js"
   },
   "scripts": {
     "start": "tsx src/bin.ts",
@@ -49,18 +49,18 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "homepage": "https://github.com/romankurnovskii/PACKAGE_NAME#readme",
+  "homepage": "https://github.com/romankurnovskii/llm-price#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romankurnovskii/PACKAGE_NAME.git"
+    "url": "git+https://github.com/romankurnovskii/llm-price.git"
   },
   "bugs": {
-    "url": "https://github.com/romankurnovskii/PACKAGE_NAME/issues"
+    "url": "https://github.com/romankurnovskii/llm-price/issues"
   },
-  "keywords": ["npm-module"],
+  "keywords": ["llm", "pricing", "deepseek", "openrouter", "deepinfra", "ai", "cli"],
   "author": {
     "name": "Roman Kurnovskii",
-    "email": "r.kurnovskii@gmail.com",
+    "email": "iam@romankurnovskii.com",
     "url": "https://romankurnovskii.com"
   }
 }
