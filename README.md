@@ -8,8 +8,23 @@ Powered by [models.dev](https://models.dev). Features zero background daemons, l
 
 ## Installation
 
+### Via Homebrew
+
 ```bash
-# Clone and install locally
+brew install romankurnovskii/llm-price/llm-price
+# or directly from formula URL:
+brew install https://raw.githubusercontent.com/romankurnovskii/llm-price/main/Formula/llm-price.rb
+```
+
+### Via NPM
+
+```bash
+npm install -g llm-price
+```
+
+### Local Development / From Source
+
+```bash
 git clone https://github.com/romankurnovskii/llm-price.git
 cd llm-price
 npm install
