@@ -3,7 +3,7 @@ import os from 'node:os'
 import path from 'node:path'
 import type { ModelsDevApiResponse } from './types.js'
 
-const DEFAULT_CACHE_DIR = path.join(os.homedir(), '.config', 'llm-price')
+const DEFAULT_CACHE_DIR = path.join(os.homedir(), '.config', 'llm-cheaper')
 const DEFAULT_CACHE_FILE = path.join(DEFAULT_CACHE_DIR, 'cache.json')
 const MODELS_DEV_URL = 'https://models.dev/api.json'
 const DEFAULT_TTL_MS = 30 * 60 * 1000 // 30 minutes
@@ -16,7 +16,7 @@ export interface CacheMetadata {
 export async function fetchRemoteData(): Promise<ModelsDevApiResponse> {
   const response = await fetch(MODELS_DEV_URL, {
     headers: {
-      'User-Agent': 'llm-price-cli/1.0 (+https://github.com/romankurnovskii/llm-price)',
+      'User-Agent': 'llm-cheaper-cli/1.0 (+https://github.com/romankurnovskii/llm-cheaper)',
       Accept: 'application/json',
     },
   })

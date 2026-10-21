@@ -7,7 +7,7 @@ import { compareProvidersForModel, findSimilarCheaperModels, normalizeEntries } 
 const program = new Command()
 
 program
-  .name('llm-price')
+  .name('llm-cheaper')
   .description('CLI tool to query cheapest LLM providers and find cheaper similar alternative models')
   .version('1.0.0')
 
