@@ -13,9 +13,8 @@ Provides both `llm-cheaper` and `llm-price` command aliases.
 ### Via Homebrew
 
 ```bash
+brew tap romankurnovskii/llm-cheaper https://github.com/romankurnovskii/llm-cheaper
 brew install romankurnovskii/llm-cheaper/llm-cheaper
-# or directly from formula URL:
-brew install https://raw.githubusercontent.com/romankurnovskii/llm-cheaper/main/Formula/llm-cheaper.rb
 ```
 
 ### Via NPM
