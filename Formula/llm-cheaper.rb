@@ -3,7 +3,7 @@ class LlmCheaper < Formula
   homepage "https://github.com/romankurnovskii/llm-cheaper"
   version "1.0.0"
   url "https://registry.npmjs.org/llm-cheaper/-/llm-cheaper-1.0.0.tgz"
-  sha256 "6e45728ebc85cd5889a154fd43facea21c307abb454932b6847160eae82fbb34"
+  sha256 "7cd50049cd7a8eb27dd0e7845e3802fdb1748ce538c4862eeb3243e78b354b8a"
   license "MIT"
 
   depends_on "node"
