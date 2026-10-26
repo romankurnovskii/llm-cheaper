@@ -1,13 +1,14 @@
 {
-  "name": "package-name",
+  "name": "llm-cheaper",
   "version": "1.0.0",
   "packageManager": "npm@10.9.8",
-  "description": "DESCRIPTION",
+  "description": "CLI tool to find the cheapest LLM providers and discover cheaper similar models across 230+ providers",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "package-name": "./dist/bin.js"
+    "llm-cheaper": "./dist/bin.js",
+    "llm-price": "./dist/bin.js"
   },
   "scripts": {
     "start": "tsx src/bin.ts",
@@ -32,8 +33,8 @@
     "lint-staged": "^17.6.0",
     "tsx": "4.23.15",
     "typescript": "7.0.2",
-    "vite": "^8.2.2",
-    "vitest": "5.0.3"
+    "vite": "^8.3.4",
+    "vitest": "5.0.5"
   },
   "exports": {
     ".": {
@@ -49,18 +50,18 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "homepage": "https://github.com/romankurnovskii/PACKAGE_NAME#readme",
+  "homepage": "https://github.com/romankurnovskii/llm-cheaper#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romankurnovskii/PACKAGE_NAME.git"
+    "url": "git+https://github.com/romankurnovskii/llm-cheaper.git"
   },
   "bugs": {
-    "url": "https://github.com/romankurnovskii/PACKAGE_NAME/issues"
+    "url": "https://github.com/romankurnovskii/llm-cheaper/issues"
   },
-  "keywords": ["npm-module"],
+  "keywords": ["llm", "pricing", "deepseek", "openrouter", "deepinfra", "ai", "cheapest", "cli"],
   "author": {
     "name": "Roman Kurnovskii",
-    "email": "r.kurnovskii@gmail.com",
+    "email": "iam@romankurnovskii.com",
     "url": "https://romankurnovskii.com"
   }
 }

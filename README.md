@@ -1,104 +1,124 @@
-<div align="center">
-  <a href="https://github.com/USERNAME/REPO_NAME">
-    <img src="./assets/icon.png" alt="Logo" width="250" style="border-radius: 10px; object-fit: cover;">
-  </a>
+# llm-cheaper
 
-  <h1 align="center">PACKAGE_NAME</h1>
+> Fast, agent-friendly CLI tool to query the cheapest LLM providers and discover cheaper similar models across 230+ providers.
 
-  <p align="center">
-    <strong>SHORT_DESCRIPTION</strong>
-  </p>
+Powered by [models.dev](https://models.dev). Features zero background daemons, local 30-minute TTL caching (`~/.config/llm-cheaper/cache.json`), and dual output formats (human-readable tables or machine-parsable JSON for AI agents).
 
-  <p align="center">
-    <a href="[npm-url]">
-      <img src="[npm-version-image]" alt="NPM Version">
-    </a>
-    <a href="[license-url]">
-      <img src="[license-image]" alt="License">
-    </a>
-    <a href="[ci-url]">
-      <img src="[ci-image]" alt="Build Status">
-    </a>
-    <a href="[ts-url]">
-      <img src="[ts-image]" alt="TypeScript">
-    </a>
-  </p>
-</div>
+Provides both `llm-cheaper` and `llm-price` command aliases.
 
 ---
 
-## 🚀 Features
+## Installation
 
-- **Feature 1**: Description.
-- **Feature 2**: Description.
-- **Feature 3**: Description.
-
-## 🛠️ Installation
+### Via Homebrew
 
 ```bash
-npm install PACKAGE_NAME
+brew tap romankurnovskii/llm-cheaper https://github.com/romankurnovskii/llm-cheaper
+brew install romankurnovskii/llm-cheaper/llm-cheaper
 ```
 
-## 📖 Usage
-
-### Basic Example
-
-```typescript
-import { hello } from "PACKAGE_NAME";
-
-const result = hello();
-console.log(result);
-```
-
-### CLI Usage
+### Via NPM
 
 ```bash
-npx PACKAGE_NAME --help
+npm install -g llm-cheaper
 ```
 
-## 💻 Development
-
-### Setup
+### Local Development / From Source
 
 ```bash
-# Clone the repository
-git clone https://github.com/USERNAME/REPO_NAME.git
-
-# Install dependencies
+git clone https://github.com/romankurnovskii/llm-cheaper.git
+cd llm-cheaper
 npm install
+npm run build
+npm link
 ```
 
-### Scripts
+---
 
-- `npm run dev`: Watch mode for development.
-- `npm run build`: Build for production.
-- `npm run test`: Run tests with Vitest.
-- `npm run lint`: Lint code with ESLint.
-- `npm run format`: Format code with Prettier.
-- `npm run release`: Create a release with Changesets.
+## Usage
 
-## 🤝 Contributing
+### 1. Find the Cheapest Provider for a Specific Model
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Compare input, output, and prompt-cache pricing across all providers hosting that model:
 
-## 📄 License
+```bash
+llm-cheaper best deepseek-chat
+# or alias
+llm-price best deepseek-chat
+```
+
+Output:
+```text
+🔍 Model: DeepSeek V3/Deepseek Chat (deepseek/deepseek-chat)
+Found across 6 provider(s):
+
+Rank   Provider    Input ($/1M)  Output ($/1M)  Cache Read ($/1M)  Context  
+----------------------------------------------------------------------------
+⭐ #1   nano-gpt    $0.1          $0.425         $0.05              128k     
+   #2  edenai      $0.15         $0.6           $0.003             131k     
+   #3  orcarouter  $0.22         $0.66          $0.007             1000k    
+   #4  openrouter  $0.2574       $1.0287        -                  164k     
+   #5  kilo        $0.2574       $1.0287        -                  128k     
+   #6  anyapi      Free/0        Free/0         -                  1000k    
+
+💡 Cheapest: nano-gpt ($0.1 / $0.425 per 1M tokens)
+```
+
+#### JSON Output (for AI Agents)
+```bash
+llm-cheaper best deepseek-chat --json
+```
+
+---
+
+### 2. Find Cheaper Similar Alternative Models
+
+When you want to reduce LLM costs without sacrificing capability, `similar` searches within the same capability tier (e.g. reasoning flagship, fast lightweight, general flagship) and highlights percentage savings:
+
+```bash
+llm-cheaper similar claude-3-5-sonnet
+```
+
+Output:
+```text
+🎯 Base Model: Claude-Sonnet-3.5 (anthropic/claude-3-5-sonnet-20241022)
+   Base Cost: $2.6 in / $13 out on poe
+
+🔥 Cheaper Similar Alternatives (5 options):
+
+Model                     Provider     Input ($/1M)  Output ($/1M)  Savings   Notes                                
+-------------------------------------------------------------------------------------------------------------------
+Llama-3.3-70B-Instruct    pendra       Free/0        Free/0         🟢 -100%  Equal or larger context (128k tokens)
+Meta Llama 3.1 8B Instru  atomic-chat  Free/0        Free/0         🟢 -100%  Same general tier                    
+ALLaM-2-7b                groq         Free/0        Free/0         🟢 -100%  Same general tier                    
+...
+```
+
+For agent scripts:
+```bash
+llm-cheaper similar claude-3-5-sonnet --json
+```
+
+---
+
+### 3. Force Cache Refresh
+
+Cache automatically expires after 30 minutes. To force update immediately:
+
+```bash
+llm-cheaper refresh
+```
+
+---
+
+## Agent Skill
+
+`llm-cheaper` includes a pre-packaged agent skill for AI assistants (Claude Code, Cursor, Codex, OpenCode, Antigravity) under [`skills/llm-cheaper/SKILL.md`](./skills/llm-cheaper/SKILL.md).
+
+Agents can load this skill to dynamically route prompts to the cheapest provider or select cheaper alternative models during autonomous tasks.
+
+---
+
+## License
 
 MIT © [Roman Kurnovskii](https://romankurnovskii.com)
-
-<!-- References -->
-
-[package-name]: PACKAGE_NAME
-[username]: USERNAME
-[repo-name]: REPO_NAME
-
-[npm-url]: https://www.npmjs.com/package/[package-name]
-[npm-version-image]: https://img.shields.io/npm/v/[package-name]?style=flat-square&color=blue
-
-[license-url]: https://github.com/[username]/[repo-name]/blob/main/LICENSE
-[license-image]: https://img.shields.io/github/license/[username]/[repo-name]?style=flat-square&color=green
-
-[ci-url]: https://github.com/[username]/[repo-name]/actions
-[ci-image]: https://img.shields.io/github/actions/workflow/status/[username]/[repo-name]/ci.yml?style=flat-square&label=CI
-
-[ts-url]: https://www.typescriptlang.org/
-[ts-image]: https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript
