@@ -65,6 +65,7 @@ Rank   Provider    Input ($/1M)  Output ($/1M)  Cache Read ($/1M)  Context
 ```
 
 #### JSON Output (for AI Agents)
+
 ```bash
 llm-cheaper best deepseek-chat --json
 ```

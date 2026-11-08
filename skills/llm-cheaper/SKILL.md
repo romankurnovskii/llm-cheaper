@@ -1,8 +1,9 @@
 ---
+
 name: llm-cheaper
 description: "Find the cheapest LLM provider for a target model or discover cheaper similar alternative models in the same capability tier. Works with Claude Code, Cursor, Codex, OpenCode, and Antigravity. Triggers on: 'find cheapest provider for model X', 'compare LLM prices', 'cheaper model than X', 'cheaper alternative to claude/gpt/deepseek', 'which provider is cheapest for X', or querying model token pricing."
 metadata:
-  version: 1.0.0
+version: 1.0.0
 ---
 
 # llm-cheaper
@@ -82,7 +83,7 @@ llm-cheaper best "deepseek-chat" --json
 }
 ```
 
-*Note: Pricing is given in USD per 1 Million tokens.*
+_Note: Pricing is given in USD per 1 Million tokens._
 
 ---
 
